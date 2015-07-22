@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.p_info_t (
 `reg_t` DOUBLE NOT NULL,
 `state` ENUM ('enable','disable') NOT NULL DEFAULT 'enable',
 PRIMARY KEY (`u_id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #------------------------CREATE TABLE team_info_t--------团队信息表------------------
 CREATE TABLE IF NOT EXISTS innovative_pro_db.team_info_t (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.team_info_t (
 `chief` BIGINT NOT NULL,
 `state` ENUM ('disband','active','ban') NOT NULL DEFAULT 'active',
 PRIMARY KEY (`t_id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #--------------------------CREATE TABLE team_mem_t---------团队成员表----------------
 CREATE TABLE IF NOT EXISTS innovative_pro_db.team_mem_t(
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.team_mem_t(
 `m_id` BIGINT NOT NULL,
 `state` ENUM ('in','remove') NOT NULL DEFAULT 'in',
 PRIMARY KEY (`T_ID`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #--------------------------CREATE TABLE affair_pro_flow_t-----事务处理流程表---------
 CREATE TABLE IF NOT EXISTS innovative_pro_db.affar_pro_flow_t(
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.affar_pro_flow_t(
 `pass` VARCHAR(64) DEFAULT 'd',
 `res_fb` VARCHAR(128) DEFAULT 'd',
 PRIMARY KEY (`a_id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #---------------------------CREATE TABLIE affair_t----------事务申请表-------------
 CREATE TABLE IF NOT EXISTS innovative_pro_db.affair_t(
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.affair_t(
 `res` VARCHAR(32) NOT NULL,
 `r_t` BIGINT NOT NULL,
 PRIMARY KEY (`id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #--------------------------CREATE TABLE field_info_t---------场地信息表-------------
 CREATE TABLE IF NOT EXISTS innovative_pro_db.field_info_t(
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS innovative_pro_db.field_info_t(
 `close` VARCHAR(64),
 `map` VARCHAR(256),
 PRIMARY KEY (`id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #-------------------------CREATE TABLE field_use_t---------场地使用信息表---------
 CREATE TABLE  IF NOT EXISTS innovative_pro_db.field_use_t(
@@ -88,4 +88,20 @@ CREATE TABLE  IF NOT EXISTS innovative_pro_db.field_use_t(
 `reason` VARCHAR(1024),
 `state` ENUM('volid','valid') NOT NULL DEFAULT 'valid',
 PRIMARY KEY (`id`)
-)ENGINE=InnoDB CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#--------------------------CREATE TABLE affair_pro_t---------数据处理表------------
+CREATE TABLE IF NOT EXISTS innovative_pro_db.affair_pro_t(
+`id` BIGINT NOT NULL UNIQUE,
+`o_id` BIGINT NOT NULL UNIQUE,
+`a_id` BIGINT NOT NULL,
+`step` int NOT NULL,
+`proposer` BIGINT NOT NULL,
+`processor` BIGINT NOT NULL,
+`content` VARCHAR(1024),
+`rec_t` BIGINT NOT NULL,
+`end_t` BIGINT NOT NULL,
+`comment` VARCHAR(1024),
+`res` ENUM('pass','refuse','none') NOT NULL DEFAULT 'none',
+PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
