@@ -37,6 +37,17 @@ while($row=mysql_fetch_assoc($res)){
 }
 mysql_free_result($res);
 //print_r($res_array);
+//php数组转json格式数据例子
+/*$info=array();
+$coment=array();
+$coment[]=array('0'=>array('p'=>'u1','s'=>'gg gg gg'),'1'=>array('p'=>'u2','s'=>'good good good'));
+//$coment[]=array('0'=>array('p'=>'u1','s'=>'gg gg gg'),'1'=>array('p'=>'u2','s'=>'good good good'));
+//echo json_encode($coment);
+$info[]=array('id'=>'001','name'=>'wdh','coment'=>$coment);
+$array=array('info'=>$info);
+//print_r($info);
+$json=json_encode($array);
+echo $json;*/
 /*将数据库查询结果转换为json数据反馈给浏览器
  */
 

@@ -1,6 +1,0 @@
-例：
-'{"info":[{"id":"001","name":"wdh","comment":[{"p":"u1","s":"whj wer err"},{"p":"u2","s":"gg gg gg"}]},{"id":"002","name":"xxx"}]}'
-王师兄：
-1.在你指定的json格式中"comment":[{"p":"u1","s":"whj wer err"}内容p，u1，s是什么意思，我要去那些表找，然后组织成json格式反馈前台页面。
-2.我今天查了下，在禁用掉cookie之后，PHP有一种不用前台调用post/get传递session id的方法，可以给该php.ini中的session.use_trans_sid ，然后php
-就会自动把session id通过URL传过来。但是这种做法不太安全。我程序写了接收代码。
